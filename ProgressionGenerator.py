@@ -44,4 +44,4 @@ def generate_progression(key:str, scale:str, octave:int, bpm: int, note_length, 
     with open(output_file, "wb") as output_file:
         midi.writeFile(output_file)
 
-generate_progression("c", "minor", 2, 120, note_length=0.5, output_file="progression_minor.mid")
+generate_progression("c", "harmonic_minor", 2, 120, note_length=0.5, output_file="progression_harmonic_minor.mid")

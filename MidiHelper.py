@@ -36,7 +36,8 @@ note_offset_mapping = {
 
 scale_mapping = {
     "major": [0, 2, 4, 5, 7, 9, 11, 12],
-    "minor": [0, 2, 3, 5, 7, 8, 10, 12]
+    "minor": [0, 2, 3, 5, 7, 8, 10, 12],
+    "harmonic_minor": [0, 2, 3, 5, 7, 8, 11, 12]
 }
 
 midi_note_mapping = {
@@ -144,6 +145,16 @@ def get_chords_in_scale(key:str, scale:str, octave:int):
         chords.append([scale_val[7], get_octaved_note(scale_val[2], 1), get_octaved_note(scale_val[4], 1)])
     
     if (scale == "minor"):
+        chords.append([scale_val[0], scale_val[2], scale_val[4]])
+        chords.append([scale_val[1], scale_val[3], scale_val[5]])
+        chords.append([scale_val[2], scale_val[4], scale_val[6]])
+        chords.append([scale_val[3], scale_val[5], scale_val[7]])
+        chords.append([scale_val[4], scale_val[6], get_octaved_note(scale_val[1], 1)])
+        chords.append([scale_val[5], scale_val[7], get_octaved_note(scale_val[2], 1)])
+        chords.append([scale_val[6], get_octaved_note(scale_val[1], 1), get_octaved_note(scale_val[3], 1)])
+        chords.append([scale_val[7], get_octaved_note(scale_val[2], 1), get_octaved_note(scale_val[4], 1)])
+
+    if (scale == "harmonic_minor"):
         chords.append([scale_val[0], scale_val[2], scale_val[4]])
         chords.append([scale_val[1], scale_val[3], scale_val[5]])
         chords.append([scale_val[2], scale_val[4], scale_val[6]])
